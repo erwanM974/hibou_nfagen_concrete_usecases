@@ -1,0 +1,8 @@
+loopS(
+	seq(
+		loopS(Rover0 -- SU -> Rover1),
+		LaneS -> Rover0,
+		loopS(Rover0 -- EB -> Rover1),
+		LaneF -> Rover0
+	)
+)

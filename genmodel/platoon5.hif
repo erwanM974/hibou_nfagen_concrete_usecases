@@ -1,0 +1,56 @@
+seq(
+	loopS(
+		seq(
+			loopS(Rover0 -- SU -> (Rover1,Rover2,Rover3,Rover4)),
+			LaneS -> Rover0,
+			loopS(Rover0 -- EB -> (Rover1,Rover2,Rover3,Rover4)),
+			LaneF -> Rover0
+		)
+	),
+	alt(
+		seq(
+			Rover0 -- LP -> (Rover1,Rover2,Rover3,Rover4),
+			seq(
+				loopS(
+					seq(
+						loopS(Rover1 -- SU -> (Rover2,Rover3,Rover4)),
+						LaneS -> Rover1,
+						loopS(Rover1 -- EB -> (Rover2,Rover3,Rover4)),
+						LaneF -> Rover1
+					)
+				),
+				alt(
+					seq(
+						Rover1 -- LP -> (Rover2,Rover3,Rover4),
+						seq(
+							loopS(
+								seq(
+									loopS(Rover2 -- SU -> (Rover3,Rover4)),
+									LaneS -> Rover2,
+									loopS(Rover2 -- EB -> (Rover3,Rover4)),
+									LaneF -> Rover2
+								)
+							),
+							alt(
+								seq(
+									Rover2 -- LP -> (Rover3,Rover4),
+									loopS(
+										seq(
+											loopS(Rover3 -- SU -> Rover4),
+											LaneS -> Rover3,
+											loopS(Rover3 -- EB -> Rover4),
+											LaneF -> Rover3
+										)
+									)
+								),
+								o
+							)
+						)
+					),
+					o
+				)
+			)
+		),
+		o
+	)
+)
